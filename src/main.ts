@@ -12,10 +12,9 @@ async function bootstrap() {
   const app: NestExpressApplication = await NestFactory.create(AppModule);
   dotenv.config();
   const config = new DocumentBuilder()
-    .setTitle('Backend')
+    .setTitle('Air Quality')
     .setDescription('AirQuality')
     .setVersion('1.0')
-    .addTag('backend')
     .addBearerAuth(
       { type: 'http', scheme: 'bearer', bearerFormat: 'Authorization' },
       'Authorization',

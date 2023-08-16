@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { AirQualityService } from './air-quality.service';
 import { Response } from 'express';
-import {PostgreStatusCode, ServerStatus} from '../../enums/enums';
+import {PostgreStatusCode, ServerStatus} from '../../common/enums/enums';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ApiResponseTags } from '../../common/helper/decorators/api-response-tags.decorator';
 import { NearestCityDto } from './dto/request.dto';

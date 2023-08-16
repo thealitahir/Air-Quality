@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import { AirQuality } from '../../entities/airQuality.entity';
 import { IQAirService } from '../../common/services/iqAir.service';
 import { NearestCityDto } from './dto/request.dto';
-import { IQ_AIR_STATUSES, ServerStatus } from '../../enums/enums';
+import { IQ_AIR_STATUSES, ServerStatus } from '../../common/enums/enums';
 
 @Injectable()
 export class AirQualityService {
