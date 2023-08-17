@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import axios, { AxiosInstance } from 'axios';
 
 @Injectable()
@@ -20,8 +20,7 @@ export class IQAirService {
       const response = await this.api.get(`nearest_city?lat=${body.lat}&lon=${body.lon}&key=${process.env.IQ_AIR_API_KEY}`,{ timeout:10000 });
       return response.data;
     } catch (error) {
-      console.log("error",error)
-      throw error;
+      throw new HttpException(error, 400);
     }
   }
 
