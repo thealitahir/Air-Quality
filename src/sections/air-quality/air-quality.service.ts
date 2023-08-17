@@ -29,7 +29,7 @@ export class AirQualityService {
         if (pollution) return {Status:ServerStatus.success, Result:{pollution} }
       }
     } catch(err) {
-      throw err
+      throw err.message ? err : {message:err}
     }
   }
 
@@ -47,7 +47,7 @@ export class AirQualityService {
     }
     const result =  await this.airRep.save(payload)
     if (result) return {Status:ServerStatus.success, Result:result }
-    else throw 'Data not saved'
+    else throw {message: 'Data not saved'}
   }
 
   async getMostPopulatedData(): Promise<any> {

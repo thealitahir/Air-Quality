@@ -14,4 +14,9 @@ const enum ServerStatus {
   success = "Success",
   failure = "Failure"
 }
-export { PostgreStatusCode, IQ_AIR_STATUSES, ServerStatus };
+
+const enum LatLngData {
+  lat = "48.856613",
+  lng = "2.352222"
+}
+export { PostgreStatusCode, IQ_AIR_STATUSES, ServerStatus, LatLngData };

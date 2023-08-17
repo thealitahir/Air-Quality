@@ -13,23 +13,6 @@ export class IQAirService {
         'Content-Type': 'application/json',
       },
     });
-
-    this.api.interceptors.response.use(
-      (response) => response,
-      (error) => {
-        throw this.formatApiError(error); // Rethrow the Axios error
-      }
-    );
-  }
-
-  private formatApiError(error: any) {
-    const exceptionMessage = error.response ? error.response.data : 'Failed to fetch data from the API';
-    return {
-      statusCode: error.response ? error.response.status : HttpStatus.BAD_REQUEST,
-      message: exceptionMessage,
-      error: true,
-      timestamp:new Date().toISOString()
-    };
   }
 
   async nearestCityData(body) {
@@ -37,7 +20,7 @@ export class IQAirService {
       const response = await this.api.get(`nearest_city?lat=${body.lat}&lon=${body.lon}&key=${process.env.IQ_AIR_API_KEY}`,{ timeout:10000 });
       return response.data;
     } catch (error) {
-      throw this.formatApiError('Failed to fetch data from the API')
+      throw {message:"Failed to fetch data from the IqAir api"}
     }
   }
 
