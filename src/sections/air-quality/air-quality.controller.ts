@@ -14,7 +14,7 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ApiResponseTags } from '../../common/helper/decorators/api-response-tags.decorator';
 import { NearestCityDto } from './dto/request.dto';
 import { Cron, CronExpression } from '@nestjs/schedule';
-import { HttpExceptionFilter } from 'src/common/helper/exception-filter';
+import { HttpExceptionFilter } from '../../common/helper/exception-filter';
 
 
 @ApiTags('air-quality')
