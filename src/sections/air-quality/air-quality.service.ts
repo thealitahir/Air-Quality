@@ -22,10 +22,14 @@ export class AirQualityService {
   }
 
   async findNearestCity(query:NearestCityDto): Promise<any> {
-    const result =  await this.iqAirService.nearestCityData(query)
-    if(result.status === IQ_AIR_STATUSES.success) {
-      const { data: { current: {pollution} } } = result
-      if (pollution) return {Status:ServerStatus.success, Result:{pollution} }
+    try {
+      const result =  await this.iqAirService.nearestCityData(query)
+      if(result.status === IQ_AIR_STATUSES.success) {
+        const { data: { current: {pollution} } } = result
+        if (pollution) return {Status:ServerStatus.success, Result:{pollution} }
+      }
+    } catch(err) {
+      throw err
     }
   }
 

@@ -31,7 +31,7 @@ export class AirQualityController {
     } catch (err) {
       response
         .status(PostgreStatusCode.AuthorizationError)
-        .send({ error: true, message: err });
+        .send(err);
     }
   }
 
