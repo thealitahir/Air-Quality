@@ -3,16 +3,10 @@ import { Cache } from 'cache-manager';
 
 export class BaseService<T> {
   private repo;
-  private entityName: string;
-  private client;
   constructor(
     repo: Repository<T>,
-    entityName: string,
-    private cacheManager: Cache,
   ) {
     this.repo = repo;
-    this.entityName = entityName;
-    this.client = cacheManager;
   }
 
   async findAll(opts?): Promise<T[]> {

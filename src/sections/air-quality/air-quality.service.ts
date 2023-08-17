@@ -18,8 +18,6 @@ export class AirQualityService {
   ) {
     this.airRep = new BaseService<AirQuality>(
       this.airRepository,
-      AirQuality.name,
-      null,
     );
   }
 
@@ -57,7 +55,7 @@ export class AirQualityService {
       },
       take: 1,
     });
-    const datetime = mostPopulatedData[0].ts
+    const datetime = mostPopulatedData[0]?.ts
     return {Status:ServerStatus.success, Result:{datetime} }
   }
 }
