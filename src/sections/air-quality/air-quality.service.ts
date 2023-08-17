@@ -49,7 +49,7 @@ export class AirQualityService {
   }
 
   async getMostPopulatedData(): Promise<any> {
-    const mostPopulatedData = await this.airRepository.find({
+    const mostPopulatedData = await this.airRep.findAll({
       select:['ts'],
       order: {
         aqius: 'DESC',
